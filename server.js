@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== 'production') dotEnv.config();
 
 import app from './app.js';
 
-const CONNECTION_URL = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@cluster0.e146p.mongodb.net/<dbname>?retryWrites=true&w=majority`;
+const CONNECTION_URL = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@cluster0.e146p.mongodb.net/memories?retryWrites=true&w=majority`;
 const PORT = process.env.PORT || 8080;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true,useUnifiedTopology: true})
