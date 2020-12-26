@@ -5,10 +5,8 @@ export const getPosts = async (req, res) => {
     const postMessages = await PostMessage.find();
     res.status(200).json({
       status: 'success',
-      results: postMessages.length,
-      data: {
-        data: postMessages,
-      },
+      results: postMessages.length, 
+      data: postMessages,
     });
   } catch (err) {
     console.log(err);
