@@ -23,9 +23,7 @@ export const createPost = async (req, res) => {
     const newPost = await PostMessage.create(req.body);
     res.status(201).json({
       status: 'success',
-      data: {
-        data: newPost,
-      },
+      data: newPost,
     });
   } catch (err) {
     console.log(err);
@@ -35,5 +33,3 @@ export const createPost = async (req, res) => {
     });
   }
 }
-
-//minute 28:51
