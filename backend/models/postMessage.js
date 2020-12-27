@@ -24,6 +24,17 @@ const postSchema = new mongoose.Schema({
     default: new Date()
   },
 });
+/*//possible middleware for future actions.
+postSchema.pre('/^find/',function(next) {
+  this.likes = 10
+  next();
+});
+
+//this middleare was only to check post middleware.
+postSchema.post(/^find/, function (docs, next) {
+  console.log('likes ', this.likes);
+  next();
+});*/
 
 const PostMessage = mongoose.model('PostMessage', postSchema);
 

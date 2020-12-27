@@ -18,3 +18,8 @@ export const deletePost = (id) => axios({
   url: `${url}/${id}`
 });
 
+export const likePost = (id) => axios({
+  method: 'patch',
+  url: `${url}/${id}/likepost`,
+});
+

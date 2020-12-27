@@ -78,3 +78,28 @@ export const deletePost = async (req, res) => {
   }
 
 }
+
+export const likePost = async (req,res) =>{
+  try {
+    const targetPost = await PostMessage.findById(req.params.id);
+    if (!targetPost) {
+      res.status(404).json({
+        status: 'fail',
+        message: 'No document founded with this id'
+      });
+    }
+    const likedPost = await PostMessage.findByIdAndUpdate(req.params.id, {likeCount: targetPost.likeCount + 1}, {
+      new: true,
+      runValidators: true,
+    });
+    res.status(200).json({
+      status: 'success',
+      data: likedPost,
+    });
+  } catch (err) {
+    res.status(409).json({
+      status: 'fail',
+      message: err.message
+    });
+  }
+}

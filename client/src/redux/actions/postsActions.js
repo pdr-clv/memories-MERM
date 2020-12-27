@@ -49,3 +49,13 @@ export const deletePost = (id) => async(dispatch) => {
     console.log(err);
   }
 }
+
+export const likePost = (id) => async(dispatch) => {
+  try {
+    const { data } = await api.likePost(id)
+    //in data we have newPost, after updating existing post.
+    dispatch({ type: actionTypes.UPDATE_POST, payload: data.data})
+  }catch (err) {
+    console.log(err);
+  }
+}
