@@ -26,6 +26,14 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(`${__dirname}/front-end/build`));
+  app.get('*', (req,res) => {
+    res.sendFile(`${__dirname}/front-end/build/index.html`);
+  });
+}
+
+
 export default app;
 
 //15:51
