@@ -1,9 +1,18 @@
 import mongoose from 'mongoose';
 
 const postSchema = new mongoose.Schema({
-  title: String,
-  message: String,
-  creator: String,
+  title: {
+    type: String,
+    required: [true, 'A Memory must have a title']
+  },
+  message: {
+    type: String,
+    required: [true, 'A Memory must have a message']
+  },
+  creator: {
+    type: String,
+    required: [true, 'A Memory must have a creator']
+  },
   tags: [String],
   selectedFile: String,
   likeCount: {
