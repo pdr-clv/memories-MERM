@@ -1,0 +1,3 @@
+DATABASE_PASSWORD={Data base password}
+DATABASE_USERNAME={username mongoDB Atlas}
+DATABASE_NAME={data base name}
