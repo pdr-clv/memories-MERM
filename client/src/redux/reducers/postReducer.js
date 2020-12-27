@@ -1,11 +1,15 @@
+import actionTypes from '../actions/actionTypes';
+
 const postReducer = (posts = [], action) => {
   switch (action.type) {
-    case 'FETCH_ALL':
+    case actionTypes.FETCH_ALL:
       return action.payload;
-    case 'CREATE_POST':
+    case actionTypes.CREATE_POST:
       return [...posts, action.payload];
-    case 'UPDATE_POST':
+    case actionTypes.UPDATE_POST:
       return posts.map((post) => post._id === action.payload._id ? action.payload : post);
+    case actionTypes.DELETE_POST:
+      return posts.filter((post) => post._id !== action.payload);
     default:
       return posts;
   }

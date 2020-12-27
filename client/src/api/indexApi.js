@@ -12,5 +12,9 @@ export const updatePost = (id, data) => axios({
   method: 'patch',
   url: `${url}/${id}`,
   data,
-})
+});
+export const deletePost = (id) => axios({
+  method: 'delete',
+  url: `${url}/${id}`
+});
 

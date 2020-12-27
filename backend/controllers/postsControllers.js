@@ -56,3 +56,25 @@ export const updatePost = async (req, res) => {
     });
   }
 }
+
+export const deletePost = async (req, res) => {
+  try {
+    const deletedPost = await PostMessage.findByIdAndDelete(req.params.id);
+    if (!deletedPost) {
+      res.status(404).json({
+        status: 'fail',
+        message: 'No document founded with this id to delete'
+      });
+    }
+    res.status(204).json({
+      status: 'success',
+      data: null,
+    });
+  } catch (err) {
+    res.status(409).json({
+      status: 'fail',
+      message: err.message
+    });
+  }
+
+}
