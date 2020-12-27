@@ -20,19 +20,12 @@ if (process.env.NODE_ENV === 'production') {
   app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });*/
+  const __dirname = path.resolve();
   app.use(express.static(`${__dirname}/client/build`));
   app.get('*', (req,res) => {
     res.sendFile(`${__dirname}/client/build/index.html`);
   });
 }
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(`${__dirname}/front-end/build`));
-  app.get('*', (req,res) => {
-    res.sendFile(`${__dirname}/front-end/build/index.html`);
-  });
-}
-
 
 export default app;
 
