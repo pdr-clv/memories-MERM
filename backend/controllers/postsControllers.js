@@ -2,7 +2,8 @@ import PostMessage from '../models/postMessage.js';
 
 export const getPosts = async (req, res) => {
   try {
-    const postMessages = await PostMessage.find();
+    const PostsQuery = PostMessage.find().sort('-createdAt');
+    const postMessages = await PostsQuery;
     res.status(200).json({
       status: 'success',
       results: postMessages.length, 

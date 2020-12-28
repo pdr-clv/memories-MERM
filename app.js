@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import path from 'path';
+import compression from 'compression';
 
 import postsRoutes from './backend/routes/postsRoutes.js';
 
@@ -11,6 +12,7 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
+app.use(compression());
 app.use('/posts', postsRoutes);
 
 //setting static webpages.
